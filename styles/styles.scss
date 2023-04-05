@@ -1,0 +1,56 @@
+@use "./mixins.scss";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
+$primary-background-color: #0a192f;
+$primary-color: #66f0d3;
+$secondary-color: #ccd6f6;
+
+* {
+    font-family: "Open Sans", sans-serif;
+    background-color: $primary-background-color;
+    color: $secondary-color;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+
+    &__header {
+        color: $secondary-color;
+        @include mixins.laptop {
+            font-size: 30px;
+        }
+    }
+    &__textArea {
+        color: $primary-color;
+        width: 70%;
+        padding: 10px;
+        @include mixins.laptop {
+            font-size: 17px;
+            padding: 40px;
+        }
+    }
+    &__div {
+        border: 1px groove $secondary-color;
+        width: 70%;
+        height: fit-content;
+        word-break: break-all;
+        padding: 10px;
+        @include mixins.laptop {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        &--para {
+            color: $primary-color;
+            border: none;
+            width: 80%;
+            height: fit-content;
+            @include mixins.laptop {
+                font-size: 17px;
+            }
+        }
+    }
+}
