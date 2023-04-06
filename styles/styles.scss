@@ -15,22 +15,49 @@ $secondary-color: #ccd6f6;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: flex-start;
     width: 100%;
     gap: 20px;
+    position: relative;
+    margin-bottom: 50px;
+    @include mixins.tv {
+        gap: 40px;
+    }
 
     &__header {
         color: $secondary-color;
-        @include mixins.laptop {
-            font-size: 30px;
+        font-size: 30px;
+        @include mixins.mobile {
+            font-size: 22px;
+        }
+        @include mixins.desktop {
+            font-size: 35px;
+        }
+        @include mixins.tv {
+            font-size: 45px;
         }
     }
     &__textArea {
         color: $primary-color;
         width: 70%;
         padding: 10px;
+        margin-bottom: 0;
+        @include mixins.mobile {
+            font-size: 12px;
+        }
+        @include mixins.tablet {
+            font-size: 15px;
+        }
         @include mixins.laptop {
             font-size: 17px;
             padding: 40px;
+        }
+        @include mixins.desktop {
+            font-size: 18px;
+        }
+        @include mixins.tv {
+            font-size: 27px;
+            width: 60%;
         }
     }
     &__div {
@@ -39,18 +66,64 @@ $secondary-color: #ccd6f6;
         height: fit-content;
         word-break: break-all;
         padding: 10px;
+        gap: 0;
+        margin-bottom: 0;
+
         @include mixins.laptop {
             padding-left: 40px;
             padding-right: 40px;
         }
+
+        @include mixins.tv {
+            font-size: 20px;
+            width: 60%;
+        }
         &--para {
             color: $primary-color;
+            display: flex;
+            justify-content: flex-start;
             border: none;
-            width: 80%;
+            width: 100%;
             height: fit-content;
+            @include mixins.mobile {
+                font-size: 12px;
+            }
+            @include mixins.tablet {
+                font-size: 15px;
+            }
             @include mixins.laptop {
                 font-size: 17px;
             }
+            @include mixins.desktop {
+                font-size: 18px;
+            }
+            @include mixins.tv {
+                font-size: 27px;
+            }
         }
+    }
+}
+
+#errorMessage {
+    display: flex;
+    justify-content: center;
+}
+
+body > footer {
+    position: fixed !important;
+    top: 95vh !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: sticky;
+    top: 100vh;
+    padding: 7px;
+
+    @include mixins.mobile {
+        font-size: 12px;
+    }
+    @include mixins.tv {
+        font-size: 21px;
     }
 }
