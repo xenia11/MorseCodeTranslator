@@ -44,6 +44,7 @@
   width: 70%;
   padding: 10px;
   margin-bottom: 0;
+  border-radius: 5px;
 }
 @media only screen and (max-width: 480px) {
   .main-container__textArea {
@@ -78,13 +79,18 @@
   height: fit-content;
   word-break: break-all;
   padding: 10px;
-  gap: 0;
+  gap: 50px;
   margin-bottom: 0;
+  border-radius: 5px;
+}
+@media only screen and (max-width: 480px) {
+  .main-container__div {
+    gap: 0;
+  }
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   .main-container__div {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 40px;
   }
 }
 @media only screen and (min-width: 1201px) {
@@ -114,6 +120,7 @@
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   .main-container__div--para {
     font-size: 17px;
+    padding: 0;
   }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
