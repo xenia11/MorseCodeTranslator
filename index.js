@@ -19,12 +19,10 @@ const translateText = () => {
 
     if (isEnglish) {
         const engToMorse = englishToMorse(code);
-        console.log(engToMorse);
         document.getElementById("translatedValue").innerHTML = engToMorse[0];
         document.getElementById("errorMessage").innerHTML = engToMorse[1];
     } else {
         const morseToEng = morseToEnglish(code);
-        console.log(morseToEng);
         document.getElementById("translatedValue").innerHTML = morseToEng[0];
         document.getElementById("errorMessage").innerHTML = morseToEng[1];
     }
