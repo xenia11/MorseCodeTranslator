@@ -1,74 +1,45 @@
-import english from "./JSON/english.json" assert { type: "json" };
-import morse from "./JSON/morse.json" assert { type: "json" };
+import { checkIfEnglishOrMorse } from "./javascript/englishOrMorse.js";
+import elements, {
+    createElement,
+    addAttribute,
+    appendChildElement,
+} from "./javascript/elements.js";
+import englishToMorse from "./javascript/englishToMorse.js";
+import morseToEnglish from "./javascript/morseToEnglish.js";
 
-const textInput = document.querySelector("#code-value");
+document.body.appendChild(elements());
+
+const textInput = document.querySelector("#codeValue");
+
+//func that renders the translation
 
 const translateText = () => {
-    let code = document.getElementById("code-value").value;
-    let lettersAndSpaceRegex = /^[a-zA-Z\s]*$/;
-    let isEnglish = lettersAndSpaceRegex.test(code);
+    const code = textInput.value;
+    const isEnglish = checkIfEnglishOrMorse(code);
 
     if (isEnglish) {
-        englishToMorse(code);
+        const engToMorse = englishToMorse(code);
+        console.log(engToMorse);
+        document.getElementById("translatedValue").innerHTML = engToMorse[0];
+        document.getElementById("errorMessage").innerHTML = engToMorse[1];
     } else {
-        morseToEnglish(code);
+        const morseToEng = morseToEnglish(code);
+        console.log(morseToEng);
+        document.getElementById("translatedValue").innerHTML = morseToEng[0];
+        document.getElementById("errorMessage").innerHTML = morseToEng[1];
     }
-};
-
-const englishToMorse = (code) => {
-    let result = "";
-    const words = code.toUpperCase().split(" ");
-
-    for (let index = 0; index < words.length; index++) {
-        let word = words[index];
-        let letters = word.split("");
-
-        for (const letter of letters) {
-            if (english[letter] == undefined) {
-                document.getElementById("translated-value").innerHTML = "";
-                document.getElementById("error-message").innerHTML =
-                    "this is not valid code";
-                return;
-            }
-            result += english[letter];
-            result += " ";
-        }
-
-        if (index < words.length - 1) {
-            result += "/ ";
-        }
-    }
-
-    document.getElementById("translated-value").innerHTML = result;
-    document.getElementById("error-message").innerHTML = "";
-};
-
-const morseToEnglish = (code) => {
-    let result = "";
-    const words = code.split(" / ");
-
-    for (let index = 0; index < words.length; index++) {
-        let word = words[index];
-        let letters = word.split(" ");
-
-        for (const letter of letters) {
-            if (letter == "") return;
-            if (morse[letter] == undefined) {
-                document.getElementById("translated-value").innerHTML = "";
-                document.getElementById("error-message").innerHTML =
-                    "this is not valid code";
-                return;
-            }
-            result += morse[letter];
-        }
-
-        if (index < words.length - 1) {
-            result += " ";
-        }
-    }
-
-    document.getElementById("error-message").innerHTML = "";
-    document.getElementById("translated-value").innerHTML = result;
 };
 
 textInput.addEventListener("input", translateText);
+
+//render footer and the current year
+
+const getCurrentYear = new Date().getFullYear();
+const footer = createElement("footer", "footerStyle");
+addAttribute(
+    footer,
+    "innerHTML",
+    `Copyright © ${getCurrentYear} Ksenija Lunic`
+);
+
+document.body.appendChild(footer);

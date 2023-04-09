@@ -1,0 +1,26 @@
+{
+    "name": "morsecodetranslator",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/xenia11/MorseCodeTranslator.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/xenia11/MorseCodeTranslator/issues"
+    },
+    "homepage": "https://github.com/xenia11/MorseCodeTranslator#readme",
+    "devDependencies": {
+        "@babel/core": "^7.21.4",
+        "@babel/plugin-syntax-import-assertions": "^7.20.0",
+        "@babel/preset-env": "^7.21.4",
+        "babel-jest": "^29.5.0",
+        "jest": "^29.5.0"
+    }
+}
