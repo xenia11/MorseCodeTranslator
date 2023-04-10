@@ -1,4 +1,4 @@
-import english from "../json/english.json" assert { type: "json" };
+import { english } from "../dictionary/english.js";
 
 export function englishToMorse(code) {
     let result = "";

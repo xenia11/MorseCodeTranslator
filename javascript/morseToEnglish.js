@@ -1,4 +1,4 @@
-import morse from "../json/morse.json" assert { type: "json" };
+import { morse } from "../dictionary/morse.js";
 
 export function morseToEnglish(code) {
     let result = "";
