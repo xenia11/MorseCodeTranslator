@@ -4,8 +4,8 @@ import elements, {
     addAttribute,
     appendChildElement,
 } from "./javascript/elements.js";
-import englishToMorse from "./javascript/englishToMorse.js";
-import morseToEnglish from "./javascript/morseToEnglish.js";
+import { englishToMorse } from "./javascript/translate.js";
+import { morseToEnglish } from "./javascript/translate.js";
 
 document.body.appendChild(elements());
 
@@ -18,13 +18,22 @@ const translateText = () => {
     const isEnglish = checkIfEnglishOrMorse(code);
 
     if (isEnglish) {
-        const engToMorse = englishToMorse(code);
-        document.getElementById("translatedValue").innerHTML = engToMorse[0];
-        document.getElementById("errorMessage").innerHTML = engToMorse[1];
+        try {
+            const engToMorse = englishToMorse(code);
+            document.getElementById("translatedValue").innerHTML = engToMorse;
+
+            document.getElementById("errorMessage").innerHTML = "";
+        } catch (e) {
+            document.getElementById("errorMessage").innerHTML = e.message;
+        }
     } else {
-        const morseToEng = morseToEnglish(code);
-        document.getElementById("translatedValue").innerHTML = morseToEng[0];
-        document.getElementById("errorMessage").innerHTML = morseToEng[1];
+        try {
+            const morseToEng = morseToEnglish(code);
+            document.getElementById("translatedValue").innerHTML = morseToEng;
+            document.getElementById("errorMessage").innerHTML = "";
+        } catch (e) {
+            document.getElementById("errorMessage").innerHTML = e.message;
+        }
     }
 };
 

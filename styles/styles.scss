@@ -133,3 +133,23 @@ body > footer {
         font-size: 21px;
     }
 }
+
+.note {
+    width: 100%;
+    text-align: center;
+    @include mixins.mobile {
+        font-size: 10px;
+    }
+    @include mixins.tablet {
+        font-size: 12px;
+    }
+    @include mixins.laptop {
+        font-size: 17px;
+    }
+    @include mixins.desktop {
+        font-size: 18px;
+    }
+    @include mixins.tv {
+        font-size: 20px;
+    }
+}

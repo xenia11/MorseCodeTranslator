@@ -39,6 +39,7 @@ export function elements() {
         "main-container main-container__textArea"
     );
     const footer = createElement("footer", "footer");
+    const para = createElement("p", "note");
 
     addAttribute(childDivParaOne, "id", "translatedValue");
     addAttribute(childDivParaTwo, "id", "errorMessage");
@@ -48,10 +49,17 @@ export function elements() {
     addAttribute(textArea, "cols", 100);
     addAttribute(header, "textContent", "Morse Code Translator");
     addAttribute(footer, "id", "footer");
+    addAttribute(
+        para,
+        "textContent",
+        `*Not supported characters:
+            0123456789.,_?'"/\|{}[]():;+-=${"`"}~@#$%^^&*¿¡`
+    );
 
     appendChildElement(mainDiv, header);
     appendChildElement(mainDiv, textArea);
     appendChildElement(mainDiv, childDiv);
+    appendChildElement(mainDiv, para);
     appendChildElement(childDiv, childDivParaOne);
     appendChildElement(childDiv, childDivParaTwo);
 

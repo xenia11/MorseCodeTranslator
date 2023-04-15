@@ -160,3 +160,33 @@ body > footer {
     font-size: 21px;
   }
 }
+
+.note {
+  width: 100%;
+  text-align: center;
+}
+@media only screen and (max-width: 480px) {
+  .note {
+    font-size: 10px;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .note {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .note {
+    font-size: 17px;
+  }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  .note {
+    font-size: 18px;
+  }
+}
+@media only screen and (min-width: 1201px) {
+  .note {
+    font-size: 20px;
+  }
+}

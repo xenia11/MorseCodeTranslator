@@ -25,6 +25,7 @@ export const morse = {
     "-..-": "x",
     "-.--": "y",
     "--..": "z",
+    "/": " ",
 };
 
 export default morse;

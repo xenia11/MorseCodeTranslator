@@ -1,5 +1,5 @@
 export function checkIfEnglishOrMorse(code) {
-    const lettersAndSpaceRegex = /^[a-zA-Z\s]*$/;
+    const lettersAndSpaceRegex = /^.*[a-zA-Z]+.*$/;
 
     return lettersAndSpaceRegex.test(code);
 }

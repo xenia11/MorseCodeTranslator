@@ -25,6 +25,7 @@ export const english = {
     X: "-..-",
     Y: "-.--",
     Z: "--..",
+    " ": "/",
 };
 
 export default english;
